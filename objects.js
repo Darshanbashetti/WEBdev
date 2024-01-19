@@ -1,13 +1,15 @@
-<script>
+
   const darshan = {
     firstname: "darshan",
     lastname: "bashetti",
-    age: 2024 - 2001,
+    birthYear: 2024 - 23,
     frds: ["vonya", "shashi", "niks"],
-
-    function: abcd(value),
+    calcAge: function () {
+      this.age = 2024 - this.birthYear;
+      return this.age;
+    },
   };
-  console.log(darshan.firstname);
-  const abcd = prompt("Choose between firstname, lastname, age, frds");
-  console.log(darshan[abcd]);
-</script>
+
+  console.log(darshan.calcAge());
+  console.log`${darshan.firstname} is a ${darshan.calcAge} old man, and he has drivers licence.`;
+
