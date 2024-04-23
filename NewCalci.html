@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .calculator {
+        width: 300px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      #display {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 24px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .button {
+        flex: 1;
+        margin: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 15px;
+        transition: background-color 0.3s;
+      }
+
+      .button:hover {
+        background-color: #f2f2f2;
+      }
+
+      .orange {
+        background-color: #ff9800;
+        color: white;
+      }
+
+      .orange:hover {
+        background-color: #e69500;
+      }
+
+      .red {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .red:hover {
+        background-color: #d32f2f;
+      }
+
+      .green {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .green:hover {
+        background-color: #388e3c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" disabled />
+      <div class="row">
+        <button class="button red" onclick="clearDisplay()">C</button>
+        <button class="button" onclick="addToDisplay('7')">7</button>
+        <button class="button" onclick="addToDisplay('8')">8</button>
+        <button class="button" onclick="addToDisplay('9')">9</button>
+        <button class="button orange" onclick="addToDisplay('/')">/</button>
+      </div>
+      <div class="row">
+        <button class="button" onclick="addToDisplay('4')">4</button>
+        <button class="button" onclick="addToDisplay('5')">5</button>
+        <button class="button" onclick="addToDisplay('6')">6</button>
+        <button class="button orange" onclick="addToDisplay('*')">*</button>
+      </div>
+      <div class="row">
+        <button class="button" onclick="addToDisplay('1')">1</button>
+        <button class="button" onclick="addToDisplay('2')">2</button>
+        <button class="button" onclick="addToDisplay('3')">3</button>
+        <button class="button orange" onclick="addToDisplay('-')">-</button>
+      </div>
+      <div class="row">
+        <button class="button" onclick="addToDisplay('0')">0</button>
+        <button class="button" onclick="addToDisplay('.')">.</button>
+        <button class="button green" onclick="calculate()">=</button>
+        <button class="button orange" onclick="addToDisplay('+')">+</button>
+      </div>
+    </div>
+    <script>
+      function addToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculate() {
+        var display = document.getElementById("display").value;
+        var result = eval(display);
+        if (result !== undefined && result !== null && !isNaN(result)) {
+          document.getElementById("display").value = result;
+        } else {
+          document.getElementById("display").value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
